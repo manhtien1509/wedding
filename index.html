@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💒 Tiến & Huyền - Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="no-scroll">
+
+    <!-- AUDIO -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="audio/ido.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ENVELOPE -->
+    <div class="envelope-overlay" id="envelopeOverlay">
+        <div class="envelope-scene">
+            <div class="envelope" id="envelope" onclick="openEnvelope()">
+                <div class="envelope-flap">
+                    <div class="envelope-flap-inner"></div>
+                </div>
+                <div class="envelope-body"></div>
+                <div class="envelope-wax"></div>
+                <div class="envelope-letter">
+                    <div class="letter-ornament">~ Wedding Invitation ~</div>
+                    <div class="letter-names">Tiến & Huyền</div>
+                    <div class="letter-date">29 . 03 . 2026</div>
+                </div>
+            </div>
+            <div class="envelope-text">
+                Bạn nhận được một thiệp mời đặc biệt
+                <span class="tap">Nhấn để mở thiệp</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRAND REVEAL EFFECT -->
+    <div class="grand-reveal" id="grandReveal">
+        <div class="reveal-burst">
+            <div class="burst-ring"></div>
+            <div class="burst-ring"></div>
+            <div class="burst-ring"></div>
+        </div>
+        <div class="reveal-text-anim">
+            <div class="rta-names">Tiến & Huyền</div>
+            <div class="rta-sub">We're getting married!</div>
+        </div>
+    </div>
+
+    <!-- PETALS & PARTICLES -->
+    <div class="petals-container" id="petals"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-inner">
+            <button class="lb-close" onclick="closeLightbox()">&times;</button>
+            <button class="lb-nav lb-prev" onclick="event.stopPropagation();navigateLB(-1)">&#8249;</button>
+            <img id="lbImg" src="" alt="">
+            <button class="lb-nav lb-next" onclick="event.stopPropagation();navigateLB(1)">&#8250;</button>
+            <div class="lb-counter" id="lbCounter"></div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-frame"></div>
+        <div class="hero-corner c-tl"></div>
+        <div class="hero-corner c-tr"></div>
+        <div class="hero-corner c-bl"></div>
+        <div class="hero-corner c-br"></div>
+
+        <div class="hero-content">
+            <div class="hero-eyebrow">Save The Date</div>
+            <div class="hero-invitation">Trân trọng kính mời</div>
+            <h1 class="hero-names">
+                Mạnh Tiến
+                <span class="amp">&</span>
+                Thanh Huyền
+            </h1>
+            <div class="hero-divider">
+                <div class="line"></div>
+                <div class="diamond"></div>
+                <div class="line"></div>
+            </div>
+            <div class="hero-date">Chủ Nhật, ngày 29 tháng 03 năm 2026</div>
+            <div class="hero-venue">Hà Dương Palace — TP. Hà Nội</div>
+            <div class="hero-cta">
+                <a href="#wishes" class="btn-gold">Gửi Lời Chúc</a>
+                <a href="#album" class="btn-glass">Xem Album</a>
+            </div>
+        </div>
+
+        <div class="scroll-down">
+            <span>Scroll</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- COUPLE -->
+    <section class="couple-section" id="couple">
+        <div class="couple-bg-pattern"></div>
+        <div class="section-header reveal">
+            <span class="ornament">Cặp đôi</span>
+            <h2>Chú Rể & Cô Dâu</h2>
+            <div class="divider-fancy"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+            <p>Hai tâm hồn, một tình yêu, mãi bên nhau trọn đời</p>
+        </div>
+
+        <div class="couple-showcase">
+            <div class="couple-main">
+                <div class="couple-person groom reveal-left">
+                    <div class="couple-img-wrap">
+                        <div class="couple-img-frame">
+                            <img src="image/IMG_1092.JPEG" alt="Groom">
+                        </div>
+                        <div class="couple-img-border"></div>
+                        <div class="couple-img-badge">Chú Rể</div>
+                    </div>
+                    <h3 class="couple-name">Nguyễn Mạnh Tiến</h3>
+                    <div class="couple-role">The Groom</div>
+                    <p class="couple-bio">Chàng trai chung thuỷ, yêu đời và luôn dành trọn trái tim cho người mình yêu thương.</p>
+                    <div class="couple-parents-info">
+                        <div class="label">Con trai của</div>
+                        <div class="names">...</div>
+                    </div>
+                </div>
+
+                <div class="couple-center-piece reveal-scale">
+                    <div class="couple-heart-main">♥</div>
+                    <div class="couple-date-vertical">29.03.2026</div>
+                </div>
+
+                <div class="couple-person bride reveal-right">
+                    <div class="couple-img-wrap">
+                        <div class="couple-img-frame">
+                            <img src="image/IMG_2746.JPEG" alt="Bride">
+                        </div>
+                        <div class="couple-img-border"></div>
+                        <div class="couple-img-badge">Cô Dâu</div>
+                    </div>
+                    <h3 class="couple-name">Nguyễn Thanh Huyền</h3>
+                    <div class="couple-role">The Bride</div>
+                    <p class="couple-bio">Cô gái dịu dàng, tỏa sáng với nụ cười ấm áp và tâm hồn đẹp đẽ, là nguồn cảm hứng mỗi ngày.</p>
+                    <div class="couple-parents-info">
+                        <div class="label">Con gái của</div>
+                        <div class="names">....</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="couple-quote reveal">
+                <p>Khi hai trái tim cùng chung một nhịp đập, mọi khoảng cách đều trở nên ngắn lại, và tình yêu trở thành ngôi nhà ấm áp nhất.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="countdown-section" id="countdown">
+        <div class="countdown-bg-text">Forever</div>
+        <div class="section-header reveal">
+            <span class="ornament">Đếm ngược</span>
+            <h2>Ngày Trọng Đại</h2>
+            <div class="divider-fancy"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+            <p>Hãy cùng chờ đợi khoảnh khắc thiêng liêng</p>
+        </div>
+        <div class="countdown-container reveal">
+            <div class="countdown-item"><div class="countdown-number" id="days">00</div><div class="countdown-label">Ngày</div></div>
+            <div class="countdown-item"><div class="countdown-number" id="hours">00</div><div class="countdown-label">Giờ</div></div>
+            <div class="countdown-item"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">Phút</div></div>
+            <div class="countdown-item"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">Giây</div></div>
+        </div>
+    </section>
+
+    <!-- EVENT -->
+    <section class="event-section" id="events">
+        <div class="section-header reveal">
+            <span class="ornament">Sự kiện</span>
+            <h2>Thông Tin Tiệc Cưới</h2>
+            <div class="divider-fancy"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+            <p>Chi tiết nghi lễ trong ngày trọng đại</p>
+        </div>
+        <div class="event-timeline">
+            <div class="event-item reveal-left stagger-1">
+                <div class="event-dot">💒</div>
+                <div class="event-card-wrap"><div class="event-card">
+                    <div class="event-card-time">08:00 — 10:00</div>
+                    <h3>Lễ Vu Quy</h3>
+                    <p>Nghi thức đón dâu truyền thống tại tư gia nhà gái với sự chứng kiến của hai bên gia đình.</p>
+                    <div class="event-card-address"><span class="icon">📍</span><span>431 Tam Trinh, Hoàng Mai, Hà Nội</span></div>
+                </div></div>
+                <div class="event-spacer"></div>
+            </div>
+            <div class="event-item reveal-right stagger-2">
+                <div class="event-dot">⛪</div>
+                <div class="event-card-wrap"><div class="event-card">
+                    <div class="event-card-time">10:30 — 12:00</div>
+                    <h3>Lễ Thành Hôn</h3>
+                    <p>Nghi lễ chính thức kết duyên vợ chồng thiêng liêng, nơi tình yêu được chúc phúc trọn vẹn.</p>
+                    <div class="event-card-address"><span class="icon">📍</span><span>431 Tam Trinh, Hoàng Mai, Hà Nội</span></div>
+                </div></div>
+                <div class="event-spacer"></div>
+            </div>
+            <div class="event-item reveal-left stagger-3">
+                <div class="event-dot">🥂</div>
+                <div class="event-card-wrap"><div class="event-card">
+                    <div class="event-card-time">17:30 — 21:00</div>
+                    <h3>Tiệc Chung Vui</h3>
+                    <p>Tiệc mừng hạnh phúc cùng gia đình và bạn bè thân yêu trong không gian sang trọng, ấm cúng.</p>
+                    <div class="event-card-address"><span class="icon">📍</span><span>Hà Dương Palace, 431 Tam Trinh, Hoàng Mai, Hà Nội</span></div>
+                </div></div>
+                <div class="event-spacer"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALBUM -->
+    <section class="album-section" id="album">
+        <div class="section-header reveal">
+            <span class="ornament">Khoảnh khắc</span>
+            <h2>Album Tình Yêu</h2>
+            <div class="divider-fancy"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+            <p>Những khoảnh khắc đẹp trong hành trình yêu thương</p>
+        </div>
+        <div class="album-grid">
+            <div class="album-item reveal-scale stagger-3" onclick="openLB(2)"><img src="image/IMG_1284.JPEG" alt=""></div>
+            <div class="album-item reveal-scale stagger-1" onclick="openLB(0)"><img src="image/IMG_0803.JPEG" alt=""></div>
+            <div class="album-item reveal-scale stagger-2" onclick="openLB(1)"><img src="image/IMG_0823.JPEG" alt=""></div>
+            <div class="album-item reveal-scale stagger-4" onclick="openLB(3)"><img src="image/IMG_0771.JPEG" alt=""></div>
+            <div class="album-item reveal-scale stagger-5" onclick="openLB(4)"><img src="image/IMG_1230.JPEG" alt=""></div>
+            <div class="album-item reveal-scale stagger-6" onclick="openLB(5)"><img src="image/IMG_0878.JPEG" alt=""></div>
+            <div class="album-item reveal-scale stagger-1" onclick="openLB(6)"><img src="image/IMG_0913.JPEG" alt=""></div>
+            <div class="album-item reveal-scale stagger-2" onclick="openLB(7)"><img src="image/IMG_0543.JPEG" alt=""></div>
+        </div>
+    </section>
+
+    <!-- WISHES WITH FORM -->
+    <section class="wishes-section" id="wishes">
+        <div class="wishes-bg"></div>
+        <div class="section-header reveal">
+            <span class="ornament">Lời chúc</span>
+            <h2>Sổ Lưu Bút</h2>
+            <div class="divider-fancy"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+            <p>Hãy gửi những lời chúc phúc tốt đẹp nhất đến cô dâu chú rể</p>
+        </div>
+
+        <div class="wishes-container">
+            <!-- FORM -->
+            <div class="wish-form-card reveal">
+                <h3>Gửi Lời Chúc</h3>
+                <span class="subtitle">Viết lời chúc của bạn ♥</span>
+                <form class="wish-form" onsubmit="submitWish(event)">
+                    <div class="wish-input-row">
+                        <input type="text" class="wish-input" id="wishName" placeholder="Họ và tên *" required>
+                        <input type="text" class="wish-input" id="wishRelation" placeholder="Quan hệ (Bạn, Đồng nghiệp...)">
+                    </div>
+                    <textarea class="wish-input" id="wishMessage" placeholder="Viết lời chúc của bạn tại đây... *" required></textarea>
+                    <button type="submit" class="wish-submit" id="wishSubmitBtn">💌 Gửi Lời Chúc</button>
+                </form>
+            </div>
+
+            <!-- WISH LIST -->
+            <div class="wishes-list" id="wishesList">
+                <!-- loaded from localStorage -->
+            </div>
+        </div>
+    </section>
+
+    <!-- VENUE -->
+    <section class="venue-section" id="venue">
+        <div class="section-header reveal">
+            <span class="ornament">Địa điểm</span>
+            <h2>Nhà Hàng Tiệc Cưới</h2>
+            <div class="divider-fancy"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+        </div>
+        <div class="venue-layout reveal">
+            <div class="venue-info-side">
+                <h3>Hà Dương Palace</h3>
+                <div class="tagline">Nơi tình yêu được tôn vinh</div>
+                <p>Không gian tiệc cưới sang trọng, ấm cúng với thiết kế hiện đại — nơi hoàn hảo cho ngày trọng đại.</p>
+                <div class="venue-detail">
+                    <div class="venue-detail-icon">📍</div>
+                    <div class="venue-detail-text"><strong>Địa chỉ</strong><span>431 Tam Trinh Hoàng Mai Hà Nội</span></div>
+                </div>
+                <div class="venue-detail">
+                    <div class="venue-detail-icon">🕐</div>
+                    <div class="venue-detail-text"><strong>Thời gian</strong><span>17:30 — 21:00, Chủ Nhật 29/03/2026</span></div>
+                </div>
+                <div class="venue-detail">
+                    <div class="venue-detail-icon">📞</div>
+                    <div class="venue-detail-text"><strong>Liên hệ</strong><span>Tiến: 0901 234 567<br>Huyền: 0912 345 678</span></div>
+                </div>
+                <a href="#" class="venue-btn">📍 Xem bản đồ</a>
+            </div>
+            <div class="venue-map-side">
+                <div class="venue-map-placeholder">
+                    <span class="map-icon">🗺️</span>
+                    <p><strong>Hà Dương Palace</strong></p>
+                    <p>Hoàng Mai, Hà Nội</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GIFT -->
+    <section class="gift-section" id="gift">
+        <div class="gift-bg"></div>
+        <div class="section-header reveal">
+            <span class="ornament">Hộp mừng</span>
+            <h2>Hộp Mừng Cưới</h2>
+            <div class="divider-fancy"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+            <p>Thay cho tấm lòng, xin gửi lời cảm ơn chân thành nhất</p>
+        </div>
+        <div class="gift-container">
+            <div class="gift-cards">
+                <div class="gift-card show reveal-left stagger-1" data-side="groom">
+                    <div class="gift-card-icon">🏦</div>
+                    <h4>Nguyễn Mạnh Tiến</h4>
+                    <span class="role-label">Chú Rể</span>
+                    <div class="gift-qr"><div class="gift-qr-placeholder"><span class="qr-icon">📱</span>QR Code</div></div>
+                    <div class="gift-bank-info">
+                        <div class="gift-bank-row"><span class="gift-bank-label">Ngân hàng</span><span class="gift-bank-value">Vietcombank</span></div>
+                        <div class="gift-bank-row"><span class="gift-bank-label">Số TK</span><span class="gift-bank-value">1234 5678 9012 <button class="copy-btn" onclick="copyText('123456789012',this)">Copy</button></span></div>
+                        <div class="gift-bank-row"><span class="gift-bank-label">Chủ TK</span><span class="gift-bank-value">NGUYEN VAN MINH</span></div>
+                    </div>
+                </div>
+                <div class="gift-card show reveal-right stagger-2" data-side="groom">
+                    <div class="gift-card-icon">🏦</div>
+                    <h4>Nguyễn Thanh Huyền</h4>
+                    <span class="role-label">Cô Dâu</span>
+                    <div class="gift-qr"><div class="gift-qr-placeholder"><span class="qr-icon">📱</span>QR Code</div></div>
+                    <div class="gift-bank-info">
+                        <div class="gift-bank-row"><span class="gift-bank-label">Ngân hàng</span><span class="gift-bank-value">Techcombank</span></div>
+                        <div class="gift-bank-row"><span class="gift-bank-label">Số TK</span><span class="gift-bank-value">9876 5432 1098 <button class="copy-btn" onclick="copyText('987654321098',this)">Copy</button></span></div>
+                        <div class="gift-bank-row"><span class="gift-bank-label">Chủ TK</span><span class="gift-bank-value">TRAN THUY LINH</span></div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class="gift-note reveal">♥ Sự hiện diện của bạn đã là món quà lớn nhất. Tuy nhiên, nếu bạn muốn gửi lời chúc qua hộp mừng, chúng mình xin trân trọng đón nhận. ♥</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-names">Tiến & Huyền</div>
+        <div class="footer-date">29 . 03 . 2026 — TP. Hà Nội</div>
+        <div class="footer-hashtag">#TienHuyen2026 #WeDoForever</div>
+        <div class="footer-social">
+            <a href="#">📘</a><a href="#">📷</a><a href="#">💬</a><a href="#">🎵</a>
+        </div>
+        <div class="footer-bottom">Made with <span>♥</span> for our special day | © 2026 Tiến & Huyền</div>
+    </footer>
+
+    <!-- FIXED -->
+    <button class="music-toggle" id="musicToggle" onclick="toggleMusic()">
+        <div class="music-bars"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+    </button>
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
