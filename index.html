@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💒 Tiến & Huyền - Wedding Invitation</title>
+    <title>Tiến & Huyền - Wedding Invitation</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💒</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,6 +14,10 @@
     <audio id="bgMusic" loop preload="auto">
         <source src="audio/ido.mp3" type="audio/mpeg">
     </audio>
+
+    <!-- FIREWORKS CANVAS -->
+    <canvas id="fireworksCanvas" class="fireworks-canvas"></canvas>
+
 
     <!-- ENVELOPE -->
     <div class="envelope-overlay" id="envelopeOverlay">
@@ -95,10 +100,10 @@
             </div>
         </div>
 
-        <div class="scroll-down">
-            <span>Scroll</span>
+        <a href="#couple" class="scroll-down" id="scrollDownBtn">
+            <span>Cuộn xuống</span>
             <div class="scroll-arrow"></div>
-        </div>
+        </a>
     </section>
 
     <!-- COUPLE -->
@@ -126,12 +131,12 @@
                     <p class="couple-bio">Chàng trai chung thuỷ, yêu đời và luôn dành trọn trái tim cho người mình yêu thương.</p>
                     <div class="couple-parents-info">
                         <div class="label">Con trai của</div>
-                        <div class="names">...</div>
+                        <div class="names">Ông Nguyễn Trọng Linh <br>& Bà Trần Thị Hồng Thúy</div>
                     </div>
                 </div>
 
                 <div class="couple-center-piece reveal-scale">
-                    <div class="couple-heart-main">♥</div>
+                    <div class="couple-heart-main">💕</div>
                     <div class="couple-date-vertical">29.03.2026</div>
                 </div>
 
@@ -148,7 +153,7 @@
                     <p class="couple-bio">Cô gái dịu dàng, tỏa sáng với nụ cười ấm áp và tâm hồn đẹp đẽ, là nguồn cảm hứng mỗi ngày.</p>
                     <div class="couple-parents-info">
                         <div class="label">Con gái của</div>
-                        <div class="names">....</div>
+                        <div class="names">Bà Triệu Thanh Tuyết</div>
                     </div>
                 </div>
             </div>
@@ -241,31 +246,37 @@
     <!-- WISHES WITH FORM -->
     <section class="wishes-section" id="wishes">
         <div class="wishes-bg"></div>
-        <div class="section-header reveal">
-            <span class="ornament">Lời chúc</span>
-            <h2>Sổ Lưu Bút</h2>
-            <div class="divider-fancy"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
-            <p>Hãy gửi những lời chúc phúc tốt đẹp nhất đến cô dâu chú rể</p>
-        </div>
-
         <div class="wishes-container">
-            <!-- FORM -->
+            <div class="section-header reveal">
+                <span class="ornament">Sổ Lưu Bút</span>
+                <h2>Lời Chúc Phúc</h2>
+                <div class="divider-fancy"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+                <p>Hãy gửi những lời chúc tốt đẹp nhất đến cô dâu và chú rể</p>
+            </div>
+
+            <!-- Wish Form -->
             <div class="wish-form-card reveal">
                 <h3>Gửi Lời Chúc</h3>
-                <span class="subtitle">Viết lời chúc của bạn ♥</span>
+                <span class="subtitle">Viết lời chúc của bạn tại đây</span>
                 <form class="wish-form" onsubmit="submitWish(event)">
                     <div class="wish-input-row">
-                        <input type="text" class="wish-input" id="wishName" placeholder="Họ và tên *" required>
-                        <input type="text" class="wish-input" id="wishRelation" placeholder="Quan hệ (Bạn, Đồng nghiệp...)">
+                        <input type="text" class="wish-input" id="wishName" placeholder="Họ tên của bạn *" required>
+                        <input type="text" class="wish-input" id="wishRelation" placeholder="Mối quan hệ (VD: Bạn cô dâu)">
                     </div>
-                    <textarea class="wish-input" id="wishMessage" placeholder="Viết lời chúc của bạn tại đây... *" required></textarea>
+                    <textarea class="wish-input" id="wishMessage" placeholder="Viết lời chúc tốt đẹp nhất của bạn... *" required></textarea>
                     <button type="submit" class="wish-submit" id="wishSubmitBtn">💌 Gửi Lời Chúc</button>
                 </form>
             </div>
 
-            <!-- WISH LIST -->
-            <div class="wishes-list" id="wishesList">
-                <!-- loaded from localStorage -->
+            <!-- Wish List with scroll -->
+            <div class="reveal">
+                <div class="wishes-list-header">
+                    <h3>💝 Lời chúc từ mọi người</h3>
+                    <span class="wishes-count" id="wishesCount">0 lời chúc</span>
+                </div>
+                <div class="wishes-list-wrapper" id="wishesListWrapper">
+                    <div class="wishes-list" id="wishesList"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -298,63 +309,94 @@
             </div>
             <div class="venue-map-side">
                 <div class="venue-map-placeholder">
-                    <span class="map-icon">🗺️</span>
-                    <p><strong>Hà Dương Palace</strong></p>
-                    <p>Hoàng Mai, Hà Nội</p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.218655416524!2d105.86192051242638!3d20.983870489235226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac1794212e69%3A0xa7c3a7be3aee825b!2zVHJ1bmcgdMOibSB04buVIGNo4bupYyB0aeG7h2MgY8aw4bubaSBIw6AgRMawxqFuZyBQYWxhY2U!5e0!3m2!1svi!2s!4v1771853666738!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GIFT -->
+    <!-- GIFT - REDESIGNED -->
     <section class="gift-section" id="gift">
         <div class="gift-bg"></div>
-        <div class="section-header reveal">
-            <span class="ornament">Hộp mừng</span>
-            <h2>Hộp Mừng Cưới</h2>
-            <div class="divider-fancy"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
-            <p>Thay cho tấm lòng, xin gửi lời cảm ơn chân thành nhất</p>
-        </div>
         <div class="gift-container">
+            <div class="section-header reveal">
+                <span class="ornament">Hộp Mừng Cưới</span>
+                <h2>Mừng Cưới</h2>
+                <div class="divider-fancy"><span class="line"></span><span class="dot"></span><span class="line"></span></div>
+            </div>
+
+            <div class="gift-intro reveal">
+                <p>Sự hiện diện của bạn trong ngày trọng đại là niềm hạnh phúc lớn nhất của chúng mình. Nếu bạn muốn gửi quà mừng, xin vui lòng sử dụng thông tin bên dưới. Xin chân thành cảm ơn! 💕</p>
+            </div>
+
+            <div class="gift-tabs reveal">
+                <button class="gift-tab active" onclick="switchGiftTab('all', this)">💑 Tất Cả</button>
+                <button class="gift-tab" onclick="switchGiftTab('groom', this)">🤵 Chú Rể</button>
+                <button class="gift-tab" onclick="switchGiftTab('bride', this)">👰 Cô Dâu</button>
+            </div>
+
             <div class="gift-cards">
-                <div class="gift-card show reveal-left stagger-1" data-side="groom">
-                    <div class="gift-card-icon">🏦</div>
+                <div class="gift-card show reveal stagger-1" data-side="groom">
+                    <div class="gift-card-icon">🤵</div>
                     <h4>Nguyễn Mạnh Tiến</h4>
                     <span class="role-label">Chú Rể</span>
-                    <div class="gift-qr"><div class="gift-qr-placeholder"><span class="qr-icon">📱</span>QR Code</div></div>
-                    <div class="gift-bank-info">
-                        <div class="gift-bank-row"><span class="gift-bank-label">Ngân hàng</span><span class="gift-bank-value">Vietcombank</span></div>
-                        <div class="gift-bank-row"><span class="gift-bank-label">Số TK</span><span class="gift-bank-value">1234 5678 9012 <button class="copy-btn" onclick="copyText('123456789012',this)">Copy</button></span></div>
-                        <div class="gift-bank-row"><span class="gift-bank-label">Chủ TK</span><span class="gift-bank-value">NGUYEN VAN MINH</span></div>
+                    <div class="gift-qr">
+                        <div class="gift-qr-placeholder">
+                            <span class="qr-icon">📱</span>
+                            QR Momo / Banking
+                        </div>
                     </div>
                 </div>
-                <div class="gift-card show reveal-right stagger-2" data-side="groom">
-                    <div class="gift-card-icon">🏦</div>
+
+                <div class="gift-card show reveal stagger-2" data-side="bride">
+                    <div class="gift-card-icon">👰</div>
                     <h4>Nguyễn Thanh Huyền</h4>
                     <span class="role-label">Cô Dâu</span>
-                    <div class="gift-qr"><div class="gift-qr-placeholder"><span class="qr-icon">📱</span>QR Code</div></div>
-                    <div class="gift-bank-info">
-                        <div class="gift-bank-row"><span class="gift-bank-label">Ngân hàng</span><span class="gift-bank-value">Techcombank</span></div>
-                        <div class="gift-bank-row"><span class="gift-bank-label">Số TK</span><span class="gift-bank-value">9876 5432 1098 <button class="copy-btn" onclick="copyText('987654321098',this)">Copy</button></span></div>
-                        <div class="gift-bank-row"><span class="gift-bank-label">Chủ TK</span><span class="gift-bank-value">TRAN THUY LINH</span></div>
+                    <div class="gift-qr">
+                        <div class="gift-qr-placeholder">
+                            <span class="qr-icon">📱</span>
+                            QR Momo / Banking
+                        </div>
                     </div>
                 </div>
-                
             </div>
-            
-            <div class="gift-note reveal">♥ Sự hiện diện của bạn đã là món quà lớn nhất. Tuy nhiên, nếu bạn muốn gửi lời chúc qua hộp mừng, chúng mình xin trân trọng đón nhận. ♥</div>
+
+            <div class="gift-note reveal">
+                <span class="note-icon">💝</span>
+                <p>Chúng mình xin chân thành cảm ơn tấm lòng của quý khách.<br>
+                <span class="highlight">Sự hiện diện của bạn chính là món quà ý nghĩa nhất!</span></p>
+            </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER - REDESIGNED -->
     <footer class="footer">
-        <div class="footer-names">Tiến & Huyền</div>
-        <div class="footer-date">29 . 03 . 2026 — TP. Hà Nội</div>
-        <div class="footer-hashtag">#TienHuyen2026 #WeDoForever</div>
-        <div class="footer-social">
-            <a href="#">📘</a><a href="#">📷</a><a href="#">💬</a><a href="#">🎵</a>
+        <div class="footer-floating-hearts" id="footerHearts"></div>
+        <div class="footer-top">
+            <div class="footer-ornament">~ Forever & Always ~</div>
+            <div class="footer-names">Tiến & Huyền</div>
+            <div class="footer-date">29 tháng 3, 2026 • TP. Hà Nội</div>
+            <div class="footer-hashtag">#TiếnHuyền2026</div>
+            <p class="footer-message">Cảm ơn bạn đã dành thời gian đọc thiệp cưới của chúng mình. Sự hiện diện của bạn sẽ là niềm vui lớn nhất trong ngày trọng đại! 💕</p>
+            <div class="footer-social">
+                <a href="#" title="Facebook">📘</a>
+                <a href="#" title="Instagram">📸</a>
+                <a href="#" title="Zalo">💬</a>
+                <a href="#" title="YouTube">🎬</a>
+                <a href="#" title="TikTok">🎵</a>
+            </div>
         </div>
-        <div class="footer-bottom">Made with <span>♥</span> for our special day | © 2026 Tiến & Huyền</div>
+        <div class="footer-divider"></div>
+        <div class="footer-bottom">
+            <div class="footer-bottom-left">Made with <span>♥</span> for Tiến & Huyền's Wedding</div>
+            <div class="footer-bottom-right">
+                <a href="#home">Trang chủ</a>
+                <a href="#couple">Cô dâu & Chú rể</a>
+                <a href="#events">Sự kiện</a>
+                <a href="#wishes">Lời chúc</a>
+            </div>
+            <div class="footer-bottom-center">© 2026 Wedding of Tiến & Huyền. All rights reserved.</div>
+        </div>
     </footer>
 
     <!-- FIXED -->
