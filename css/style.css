@@ -725,3 +725,7 @@ textarea.wish-input{min-height:100px;resize:vertical}
     body{background:#fff}
     .section-header h2{color:#000}
 }
+
+.gift-qr-img {
+    width: 100%;
+}
