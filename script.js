@@ -1,18 +1,30 @@
 // ===== AUDIO =====
 const bgMusic = document.getElementById('bgMusic');
+const musicBtn = document.getElementById("musicToggle");
+
 let musicPlaying = false;
 
 function toggleMusic() {
-    const btn = document.getElementById('musicToggle');
     if (musicPlaying) {
         bgMusic.pause();
-        btn.classList.remove('playing');
+        musicBtn.classList.remove('playing');
+        musicPlaying = false;
     } else {
         bgMusic.play().catch(()=>{});
-        btn.classList.add('playing');
+        musicBtn.classList.add("playing");
+        musicPlaying = true;
     }
     musicPlaying = !musicPlaying;
 }
+
+// ===== AUTO PAUSE WHEN USER LEAVES PAGE =====
+document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+        bgMusic.pause();
+        musicBtn.classList.remove("playing");
+        musicPlaying = false;
+    }
+});
 
 // ===== FIREWORKS ENGINE (Optimized + Smooth ending) =====
 const fwCanvas = document.getElementById('fireworksCanvas');
