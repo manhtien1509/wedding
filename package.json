@@ -1,0 +1,25 @@
+{
+  "name": "wedding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manhtien1509/wedding.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/manhtien1509/wedding/issues"
+  },
+  "homepage": "https://github.com/manhtien1509/wedding#readme",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "javascript-obfuscator": "^5.3.0",
+    "terser": "^5.46.0"
+  }
+}

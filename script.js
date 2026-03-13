@@ -511,12 +511,12 @@ renderWishes();
 
 if (getWishes().length === 0) {
     const defaults = [
-        { name: 'Gia đình nhà trai', relation: 'Ba Mẹ chú rể', message: 'Chúc hai con luôn hạnh phúc, yêu thương nhau trọn đời. Ba mẹ rất tự hào và hạnh phúc khi thấy con tìm được nửa kia của mình!', time: Date.now() - 86400000 },
-        { name: 'Gia đình nhà gái', relation: 'Ba Mẹ cô dâu', message: 'Con gái yêu quý, ba mẹ chúc con và Minh luôn bên nhau, cùng xây dựng tổ ấm thật hạnh phúc. Mãi yêu con!', time: Date.now() - 72000000 },
-        { name: 'Nguyễn Hoàng Nam', relation: 'Bạn thân chú rể', message: 'Chúc mừng hai bạn! Hạnh phúc mãi bên nhau nhé. Ông trời se duyên cho đôi đẹp nhất group mình rồi! 🎉🥂', time: Date.now() - 36000000 },
-        { name: 'Phạm Thu Hà', relation: 'Bạn thân cô dâu', message: 'Linh ơi, cuối cùng cũng đến ngày này rồi! Hạnh phúc thật nhiều nhé bạn yêu. Yêu cả hai lắm lắm! 💕✨', time: Date.now() - 18000000 },
-        { name: 'Trần Minh Tuấn', relation: 'Đồng nghiệp', message: 'Chúc anh chị trăm năm hạnh phúc, sớm có tin vui nhé! Couple đẹp nhất công ty mình! 🎊', time: Date.now() - 7200000 },
-        { name: 'Lê Hoàng Yến', relation: 'Bạn đại học', message: 'Happy Wedding nghen hai đứa! Từ hồi đại học tới giờ, cuối cùng cũng chịu cưới. Hạnh phúc mãi mãi nha! 🥰💒', time: Date.now() - 3600000 }
+        // { name: 'Gia đình nhà trai', relation: 'Ba Mẹ chú rể', message: 'Chúc hai con luôn hạnh phúc, yêu thương nhau trọn đời. Ba mẹ rất tự hào và hạnh phúc khi thấy con tìm được nửa kia của mình!', time: Date.now() - 86400000 },
+        // { name: 'Gia đình nhà gái', relation: 'Ba Mẹ cô dâu', message: 'Con gái yêu quý, ba mẹ chúc con và Minh luôn bên nhau, cùng xây dựng tổ ấm thật hạnh phúc. Mãi yêu con!', time: Date.now() - 72000000 },
+        // { name: 'Nguyễn Hoàng Nam', relation: 'Bạn thân chú rể', message: 'Chúc mừng hai bạn! Hạnh phúc mãi bên nhau nhé. Ông trời se duyên cho đôi đẹp nhất group mình rồi! 🎉🥂', time: Date.now() - 36000000 },
+        // { name: 'Phạm Thu Hà', relation: 'Bạn thân cô dâu', message: 'Linh ơi, cuối cùng cũng đến ngày này rồi! Hạnh phúc thật nhiều nhé bạn yêu. Yêu cả hai lắm lắm! 💕✨', time: Date.now() - 18000000 },
+        // { name: 'Trần Minh Tuấn', relation: 'Đồng nghiệp', message: 'Chúc anh chị trăm năm hạnh phúc, sớm có tin vui nhé! Couple đẹp nhất công ty mình! 🎊', time: Date.now() - 7200000 },
+        // { name: 'Lê Hoàng Yến', relation: 'Bạn đại học', message: 'Happy Wedding nghen hai đứa! Từ hồi đại học tới giờ, cuối cùng cũng chịu cưới. Hạnh phúc mãi mãi nha! 🥰💒', time: Date.now() - 3600000 }
     ];
     saveWishes(defaults);
     renderWishes();

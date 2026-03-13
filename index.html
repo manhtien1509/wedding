@@ -6,7 +6,7 @@
     <title>Tiến & Huyền - Wedding Invitation</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💒</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=2">
+    <link rel="stylesheet" href="build/style.min.css">
 </head>
 <body class="no-scroll">
 
@@ -100,10 +100,10 @@
             </div>
         </div>
 
-        <a href="#couple" class="scroll-down" id="scrollDownBtn">
+        <!-- <a href="#couple" class="scroll-down" id="scrollDownBtn">
             <span>Cuộn xuống</span>
             <div class="scroll-arrow"></div>
-        </a>
+        </a> -->
     </section>
 
     <!-- COUPLE -->
@@ -258,7 +258,7 @@
             <div class="wish-form-card reveal">
                 <h3>Gửi Lời Chúc</h3>
                 <span class="subtitle">Viết lời chúc của bạn tại đây</span>
-                <form class="wish-form" onsubmit="submitWish(event)">
+                <form class="wish-form" id="wishForm">
                     <div class="wish-input-row">
                         <input type="text" class="wish-input" id="wishName" placeholder="Họ tên của bạn *" required>
                         <input type="text" class="wish-input" id="wishRelation" placeholder="Mối quan hệ (VD: Bạn cô dâu)">
@@ -399,6 +399,6 @@
     </button>
     <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
 
-    <script src="script.js"></script>
+    <script src="build/app.obf.js"></script>
 </body>
 </html>
