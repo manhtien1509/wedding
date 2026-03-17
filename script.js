@@ -352,14 +352,14 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // ===== LIGHTBOX =====
 const albumImgs = [
-    'image/wedding/0015 CB HUYEN TIEN.JPG',
-    'image/wedding/0473 CB HUYEN TIEN.JPG',
-    'image/wedding/0266 CB HUYEN TIEN.JPG',
-    'image/wedding/0245 CB HUYEN TIEN.JPG',
-    'image/wedding/0863 CB HUYEN TIEN.JPG',
-    'image/wedding/0775 CB HUYEN TIEN.JPG',
-    'image/wedding/0696 CB HUYEN TIEN.JPG',
-    'image/wedding/0742 CB HUYEN TIEN.JPG'
+    'image/wedding/0105 CB HUYEN TIEN ANH PHONG_1.jpg',
+    'image/wedding/0473 CB HUYEN TIEN ANH PHONG_1.jpg',
+    'image/wedding/0266 CB HUYEN TIEN ANH KHUNG_1.jpg',
+    'image/wedding/0245 CB HUYEN TIEN ANH KHUNG_1.jpg',
+    'image/wedding/0863 CB HUYEN TIEN_1.jpg',
+    'image/wedding/0775 CB HUYEN TIEN ANH KHUNG_1.jpg',
+    'image/wedding/0699 CB HUYEN TIEN_1.jpg',
+    'image/wedding/0742 CB HUYEN TIEN_1.jpg'
 ];
 let curImg = 0;
 
